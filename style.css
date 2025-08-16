@@ -1,20 +1,20 @@
-/* Reset */
+/* -------------------- RESET -------------------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Fonts & Colors */
+/* -------------------- BASE -------------------- */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  background: #fff;
+  background: #000;
   color: #111;
   scroll-behavior: smooth;
 }
 
-/* Navbar */
+/* -------------------- NAVBAR -------------------- */
 .navbar {
   position: fixed;
   top: 0;
@@ -56,7 +56,7 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* Hero Section */
+/* -------------------- HERO -------------------- */
 .hero {
   height: 100vh;
   display: flex;
@@ -93,7 +93,7 @@ nav a:hover::after {
   background: #444;
 }
 
-/* Sections */
+/* -------------------- SECTIONS -------------------- */
 section {
   padding: 5rem 2rem;
   max-width: 900px;
@@ -111,7 +111,7 @@ section p, ul {
   color: #333;
 }
 
-/* Project List */
+/* -------------------- PROJECT LIST -------------------- */
 ul {
   list-style: none;
   padding: 0;
@@ -121,7 +121,7 @@ ul li {
   margin: 0.8rem 0;
 }
 
-/* Resume & Certificate Cards */
+/* -------------------- CARDS -------------------- */
 .card-container {
   display: flex;
   justify-content: center;
@@ -164,7 +164,7 @@ ul li {
   margin: 0.3rem;
 }
 
-/* Fade-in effect */
+/* -------------------- ANIMATIONS -------------------- */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -176,7 +176,7 @@ ul li {
   transform: translateY(0);
 }
 
-/* Footer */
+/* -------------------- FOOTER -------------------- */
 footer {
   text-align: center;
   padding: 2rem;
@@ -199,7 +199,7 @@ footer {
   color: #111;
 }
 
-/* Toast Notification */
+/* -------------------- TOAST -------------------- */
 .toast {
   position: fixed;
   bottom: 30px;
@@ -219,7 +219,8 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-/* Slideshow Navigation Arrows */
+
+/* -------------------- SLIDESHOW -------------------- */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -233,89 +234,43 @@ footer {
   transform: translateY(-50%);
 }
 
-.prev {
-  left: 20px;
-}
+.prev { left: 20px; }
+.next { right: 20px; }
 
-.next {
-  right: 20px;
-}
+.prev:hover, .next:hover { color: #ff9800; }
 
-.prev:hover, .next:hover {
-  color: #ff9800;
-}
+/* -------------------- BACKGROUND ANIMATION -------------------- */
 #bgAnimation {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-  background: radial-gradient(circle, #0d0d0d, #000);
-}
-
-.panel {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(135deg, #ff0000, #990000);
-  border: 2px solid #ffcc00;
-  opacity: 0.7;
-  transform: scale(0.5) translateY(200px);
-  transition: all 0.8s ease-in-out;
-}
-
-.panel1 { top: 20%; left: 10%; }
-.panel2 { top: 40%; right: 15%; }
-.panel3 { bottom: 20%; left: 20%; }
-.panel4 { bottom: 30%; right: 25%; }
-
-.panel.active {
-  transform: scale(1) translateY(0);
-  opacity: 1;
-  box-shadow: 0 0 30px #ff3300;
-}
-/* --- Iron Man background --- */
-#bgAnimation {
-  position: fixed;
-  inset: 0;                    /* top/right/bottom/left: 0 */
-  z-index: 0;                  /* behind content but above body background */
-  pointer-events: none;        /* never block clicks */
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background: radial-gradient(1200px at 50% -200px, #0d0d0d 0%, #000 60%);
 }
 
-/* keep all content above the background */
 body > *:not(#bgAnimation) {
   position: relative;
   z-index: 1;
 }
 
-/* sliding armor panels */
+/* Sliding armor panels */
 .panel {
-  height: 25vh;                /* 4 bands fill the screen */
+  height: 25vh;
   width: 100%;
   opacity: 0.7;
-  /* metal + circuit vibe */
   background-image:
     linear-gradient(135deg, #7a0000, #1a0000),
     repeating-linear-gradient(90deg, rgba(255,204,0,.18) 0 2px, transparent 2px 8px);
   mix-blend-mode: screen;
-  transform: translateX(-100%);     /* hidden off-screen */
+  transform: translateX(-100%);
   transition: transform 0.9s cubic-bezier(.2,.65,.2,1);
 }
 
-/* alternate panels slide from the right for a “attach from both sides” feel */
 .panel:nth-child(even) {
   transform: translateX(100%);
 }
 
 .panel.active {
   transform: translateX(0);
-}
-
-/* optional subtle glow when active */
-.panel.active {
   filter: drop-shadow(0 0 12px #ff3300);
 }
-
