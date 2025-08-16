@@ -9,6 +9,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <!-- Background Animation Panels -->
+  <div id="bgAnimation">
+    <div class="panel panel1"></div>
+    <div class="panel panel2"></div>
+    <div class="panel panel3"></div>
+    <div class="panel panel4"></div>
+  </div>
+
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Ambuj</div>
@@ -71,53 +79,47 @@
   </section>
 
   <!-- Certificates Section -->
-<section id="certificates" class="fade-in">
-  <h2>Certificates</h2>
-  <div class="card-container">
+  <section id="certificates" class="fade-in">
+    <h2>Certificates</h2>
+    <div class="card-container">
 
-    <!-- Certificate 1 -->
-    <div class="card">
-      <img src="images/certificate1.jpg" alt="Certificate 1 Preview" class="certificate-img">
-      <div class="card-content">
-        <h3>Certificate 1</h3>
-        <a href="docs/certificate1.pdf" target="_blank" class="btn">View PDF</a>
+      <!-- Certificate 1 -->
+      <div class="card">
+        <img src="images/certificate1.jpg" alt="Certificate 1 Preview" class="certificate-img">
+        <div class="card-content">
+          <h3>Certificate 1</h3>
+          <a href="docs/certificate1.pdf" target="_blank" class="btn">View PDF</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Certificate 2 -->
-    <div class="card">
-      <img src="images/certificate2.jpg" alt="Certificate 2 Preview" class="certificate-img">
-      <div class="card-content">
-        <h3>Certificate 2</h3>
-        <a href="docs/certificate2.pdf" target="_blank" class="btn">View PDF</a>
+      <!-- Certificate 2 -->
+      <div class="card">
+        <img src="images/certificate2.jpg" alt="Certificate 2 Preview" class="certificate-img">
+        <div class="card-content">
+          <h3>Certificate 2</h3>
+          <a href="docs/certificate2.pdf" target="_blank" class="btn">View PDF</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Certificate 3 -->
-    <div class="card">
-      <img src="images/certificate3.jpg" alt="Certificate 3 Preview" class="certificate-img">
-      <div class="card-content">
-        <h3>Certificate 3</h3>
-        <a href="docs/certificate3.pdf" target="_blank" class="btn">View PDF</a>
+      <!-- Certificate 3 -->
+      <div class="card">
+        <img src="images/certificate3.jpg" alt="Certificate 3 Preview" class="certificate-img">
+        <div class="card-content">
+          <h3>Certificate 3</h3>
+          <a href="docs/certificate3.pdf" target="_blank" class="btn">View PDF</a>
+        </div>
       </div>
-    </div>
 
+    </div>
+  </section>
+
+  <!-- Modal Popup with Slideshow -->
+  <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
+    <img class="modal-content" id="modalImage">
   </div>
-</section>
-<!-- Modal Popup with Slideshow -->
-<div id="imgModal" class="modal">
-  <span class="close">&times;</span>
-  <span class="prev">&#10094;</span>
-  <span class="next">&#10095;</span>
-  <img class="modal-content" id="modalImage">
-</div>
-
-<div id="bgAnimation">
-  <div class="panel panel1"></div>
-  <div class="panel panel2"></div>
-  <div class="panel panel3"></div>
-  <div class="panel panel4"></div>
-</div>
 
   <!-- Contact -->
   <section id="contact" class="fade-in">
@@ -136,6 +138,5 @@
   </footer>
 
   <script src="script.js"></script>
-  
 </body>
 </html>
