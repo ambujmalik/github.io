@@ -55,3 +55,28 @@ p {font-size:1.1rem; color:#fff;}
 footer {text-align:center; padding:20px; background:rgba(0,0,0,0.8); color:#fff; font-size:0.9rem;}
 .social-links a {margin:0 10px; font-size:1.2rem; color:#fff; transition:0.3s;}
 .social-links a:hover {color:#ffcc33;}
+
+#contactForm {
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  max-width:500px;
+  margin:20px auto 0;
+}
+
+#contactForm input,
+#contactForm textarea {
+  padding:10px;
+  border-radius:6px;
+  border:none;
+  font-size:1rem;
+}
+
+#contactForm textarea {
+  resize: vertical;
+  min-height:100px;
+}
+
+#contactForm button {
+  align-self:flex-start;
+}
