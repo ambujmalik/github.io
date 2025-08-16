@@ -107,16 +107,18 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
-const panels = document.querySelectorAll(".panel");
+// Background Panel Animation
+const panels = document.querySelectorAll('#bgAnimation .panel');
 
-window.addEventListener("scroll", () => {
-  let scrollPos = window.scrollY;
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
 
   panels.forEach((panel, index) => {
-    if (scrollPos > index * 200) {  
-      panel.classList.add("active");
+    // Trigger animation at different scroll depths
+    if (scrollY > index * 200) {
+      panel.classList.add('active');
     } else {
-      panel.classList.remove("active");
+      panel.classList.remove('active');
     }
   });
 });
