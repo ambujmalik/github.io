@@ -49,3 +49,19 @@ window.addEventListener("scroll",()=>{
   if(window.scrollY>50){leftPanel.classList.add("active"); rightPanel.classList.add("active");}
   else{leftPanel.classList.remove("active"); rightPanel.classList.remove("active");}
 });
+
+// EmailJS Contact Form
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', function(e){
+  e.preventDefault(); // prevent default form submission
+
+  emailjs.sendForm('service_1dw1clq', 'template_wft17k5', this)
+    .then(() => {
+      alert('Message sent successfully!');
+      contactForm.reset();
+    }, (error) => {
+      alert('Oops... Something went wrong. Please try again.');
+      console.error(error);
+    });
+});
