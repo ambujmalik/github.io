@@ -1,9 +1,4 @@
-// Contact button
-document.getElementById("contactBtn").addEventListener("click", () => {
-  alert("Thank you for reaching out! I'll get back to you soon.");
-});
-
-// Fade-in animation
+// Fade-in on scroll
 const faders = document.querySelectorAll('.fade-in');
 const appearOnScroll = new IntersectionObserver((entries, observer)=>{
   entries.forEach(entry=>{
@@ -23,9 +18,7 @@ function showToast(message){
   setTimeout(()=>toast.classList.add('show'),100);
   setTimeout(()=>{toast.classList.remove('show'); setTimeout(()=>toast.remove(),300)},3000);
 }
-document.querySelectorAll('a[download]').forEach(btn=>{
-  btn.addEventListener('click',()=>showToast('Download started...'));
-});
+document.querySelectorAll('a[download]').forEach(btn=>{btn.addEventListener('click',()=>showToast('Download started...'));});
 
 // Modal slideshow
 const modal=document.getElementById('imgModal');
@@ -42,20 +35,23 @@ nextBtn.addEventListener('click',()=>{currentIndex=(currentIndex+1)%images.lengt
 window.addEventListener('click',e=>{if(e.target===modal) modal.style.display='none';});
 document.addEventListener('keydown',e=>{if(modal.style.display==='block'){if(e.key==='ArrowLeft') prevBtn.click(); else if(e.key==='ArrowRight') nextBtn.click(); else if(e.key==='Escape') closeBtn.click();}});
 
-// Iron Man panels scroll
-const leftPanel=document.querySelector(".panel.left");
-const rightPanel=document.querySelector(".panel.right");
-window.addEventListener("scroll",()=>{
-  if(window.scrollY>50){leftPanel.classList.add("active"); rightPanel.classList.add("active");}
-  else{leftPanel.classList.remove("active"); rightPanel.classList.remove("active");}
+// Iron Man panels scroll effect
+const leftPanel = document.querySelector(".panel.left");
+const rightPanel = document.querySelector(".panel.right");
+window.addEventListener("scroll", () => {
+  if(window.scrollY > 50){
+    leftPanel.classList.add("active");
+    rightPanel.classList.add("active");
+  } else {
+    leftPanel.classList.remove("active");
+    rightPanel.classList.remove("active");
+  }
 });
 
 // EmailJS Contact Form
 const contactForm = document.getElementById('contactForm');
-
 contactForm.addEventListener('submit', function(e){
-  e.preventDefault(); // prevent default form submission
-
+  e.preventDefault();
   emailjs.sendForm('service_1dw1clq', 'template_wft17k5', this)
     .then(() => {
       alert('Message sent successfully!');
