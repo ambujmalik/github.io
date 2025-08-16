@@ -122,3 +122,17 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+const leftPanel = document.querySelector(".panel.left");
+const rightPanel = document.querySelector(".panel.right");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    leftPanel.classList.add("active");
+    rightPanel.classList.add("active");
+  } else {
+    leftPanel.classList.remove("active");
+    rightPanel.classList.remove("active");
+  }
+});
+
