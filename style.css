@@ -45,38 +45,23 @@ p {font-size:1.1rem; color:#fff;}
 .fade-in {opacity:0; transform:translateY(20px); transition:opacity 1s ease, transform 1s ease;}
 .fade-in.visible {opacity:1; transform:translateY(0);}
 
-/* Iron Man Panels */
+/* Iron Man Panels with pulse glow */
 #bgAnimation {position:fixed; top:0; left:0; width:100%; height:100%; display:flex; z-index:-1; overflow:hidden;}
-.panel {flex:1; background:linear-gradient(145deg,#8b0000,#330000); box-shadow:inset 0 0 50px rgba(255,204,51,0.2); transition:transform 0.8s ease-in-out;}
-.panel.left.active {transform:translateX(-100%);}
-.panel.right.active {transform:translateX(100%);}
+.panel {flex:1; background:linear-gradient(145deg,#8b0000,#330000); box-shadow:inset 0 0 50px rgba(255,204,51,0.2); transition: transform 0.8s ease-in-out, box-shadow 0.8s ease-in-out;}
+.panel.left.active, .panel.right.active {transform:translateX(0); box-shadow: 0 0 60px 15px rgba(255,204,51,0.5), inset 0 0 50px rgba(255,204,51,0.3); animation: pulseGlow 1.5s infinite alternate;}
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 40px 10px rgba(255,204,51,0.4), inset 0 0 40px rgba(255,204,51,0.2); }
+  50% { box-shadow: 0 0 70px 25px rgba(255,204,51,0.6), inset 0 0 60px rgba(255,204,51,0.3); }
+  100% { box-shadow: 0 0 40px 10px rgba(255,204,51,0.4), inset 0 0 40px rgba(255,204,51,0.2); }
+}
 
 /* Footer */
 footer {text-align:center; padding:20px; background:rgba(0,0,0,0.8); color:#fff; font-size:0.9rem;}
 .social-links a {margin:0 10px; font-size:1.2rem; color:#fff; transition:0.3s;}
 .social-links a:hover {color:#ffcc33;}
 
-#contactForm {
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-  max-width:500px;
-  margin:20px auto 0;
-}
-
-#contactForm input,
-#contactForm textarea {
-  padding:10px;
-  border-radius:6px;
-  border:none;
-  font-size:1rem;
-}
-
-#contactForm textarea {
-  resize: vertical;
-  min-height:100px;
-}
-
-#contactForm button {
-  align-self:flex-start;
-}
+/* Contact Form */
+#contactForm { display:flex; flex-direction:column; gap:15px; max-width:500px; margin:20px auto 0;}
+#contactForm input, #contactForm textarea { padding:10px; border-radius:6px; border:none; font-size:1rem; }
+#contactForm textarea { resize: vertical; min-height:100px; }
+#contactForm button { align-self:flex-start; }
