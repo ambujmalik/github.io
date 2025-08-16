@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ambuj Kishore Malik - Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -111,17 +110,16 @@
 
   <!-- Contact -->
   <section id="contact" class="fade-in">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:bm.ambuj.malik@gmail.com">bm.ambuj.malik@gmail.com</a></p>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:bm.ambuj.malik@gmail.com">bm.ambuj.malik@gmail.com</a></p>
 
-  <form id="contactForm">
-    <input type="text" name="user_name" placeholder="Your Name" required>
-    <input type="email" name="user_email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit" class="btn">Send Message</button>
-  </form>
-</section>
-
+    <form id="contactForm">
+      <input type="text" name="user_name" placeholder="Your Name" required>
+      <input type="email" name="user_email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -132,15 +130,11 @@
     </div>
   </footer>
 
-  <!-- EmailJS SDK -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("5cXIcDBTiHuyE-P0p"); // Replace with your EmailJS public key
-  })();
-</script>
-
-  
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){emailjs.init("5cXIcDBTiHuyE-P0p");})();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
