@@ -107,3 +107,16 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
+const panels = document.querySelectorAll(".panel");
+
+window.addEventListener("scroll", () => {
+  let scrollPos = window.scrollY;
+
+  panels.forEach((panel, index) => {
+    if (scrollPos > index * 200) {  
+      panel.classList.add("active");
+    } else {
+      panel.classList.remove("active");
+    }
+  });
+});
