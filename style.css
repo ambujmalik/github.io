@@ -1,51 +1,57 @@
-/* ========== RESET ========== */
+/* ===============================
+   Global Styles
+================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: 'Arial', sans-serif;
+body {
+  font-family: "Poppins", sans-serif;
   background: #0d0d0d;
-  color: #f0f0f0;
+  color: #f5f5f5;
   line-height: 1.6;
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
-/* ========== NAVBAR ========== */
+/* ===============================
+   Navbar
+================================ */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: rgba(15, 15, 15, 0.9);
-  backdrop-filter: blur(6px);
+  padding: 15px 50px;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
 }
 
 .navbar .logo {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
-  color: #f05454;
+  color: #f5f5f5;
 }
 
 .navbar nav a {
-  color: #f0f0f0;
+  margin: 0 15px;
+  color: #f5f5f5;
   text-decoration: none;
-  margin-left: 1.5rem;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
 .navbar nav a:hover {
-  color: #f05454;
+  color: #ff4d4d;
 }
 
-/* ========== HERO SECTION ========== */
+/* ===============================
+   Hero Section
+================================ */
 .hero {
   height: 100vh;
   display: flex;
@@ -53,79 +59,67 @@ html, body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(120deg, #1c1c1c, #0d0d0d);
-  position: relative;
-  z-index: 1;
+  background: linear-gradient(to right, #1a1a1a, #000000);
+  padding: 0 20px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-  text-shadow: 0px 0px 12px rgba(255, 50, 50, 0.8);
+  font-size: 50px;
+  margin-bottom: 10px;
 }
 
 .hero p {
-  font-size: 1.3rem;
-  color: #cccccc;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .btn {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  background: #f05454;
+  padding: 10px 20px;
+  background: #ff4d4d;
   color: #fff;
-  border-radius: 5px;
   text-decoration: none;
-  margin-top: 1rem;
-  transition: background 0.3s ease, transform 0.2s ease;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
 
 .btn:hover {
-  background: #ff3c3c;
-  transform: scale(1.05);
+  background: #e60000;
 }
 
-/* ========== SECTIONS ========== */
+/* ===============================
+   Sections
+================================ */
 section {
-  padding: 5rem 2rem;
+  padding: 80px 20px;
   text-align: center;
-  z-index: 2;
-  position: relative;
 }
 
-h2 {
-  font-size: 2rem;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  text-shadow: 0px 0px 6px rgba(255, 80, 80, 0.6);
+section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
-p, li {
-  font-size: 1rem;
-  color: #dcdcdc;
-}
-
-/* ========== CARDS ========== */
+/* ===============================
+   Cards
+================================ */
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 20px;
 }
 
 .card {
-  background: rgba(30, 30, 30, 0.85);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0px 0px 20px rgba(255, 50, 50, 0.3);
   width: 280px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.3);
+  transition: transform 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 0px 30px rgba(255, 50, 50, 0.6);
+  transform: translateY(-10px);
 }
 
 .card img {
@@ -134,50 +128,78 @@ p, li {
 }
 
 .card-content {
-  padding: 1rem;
+  padding: 15px;
 }
 
-/* ========== CERTIFICATES MODAL ========== */
+/* ===============================
+   Certificates
+================================ */
+.certificate-img {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.certificate-img:hover {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   Modal
+================================ */
 .modal {
   display: none;
   position: fixed;
   z-index: 2000;
-  padding-top: 60px;
+  padding-top: 80px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 10, 0.95);
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modal img {
-  margin: auto;
+.modal-content {
   display: block;
+  margin: auto;
   max-width: 80%;
-  max-height: 80%;
 }
 
-.modal .close,
-.modal .prev,
-.modal .next {
-  color: #fff;
-  font-size: 2rem;
+.close,
+.prev,
+.next {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  color: #fff;
+  font-size: 40px;
   cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
 }
 
-.modal .close {
+.close {
   top: 20px;
-  right: 30px;
-  font-size: 2.5rem;
+  right: 35px;
+  font-size: 50px;
 }
 
-.modal .prev { left: 20px; }
-.modal .next { right: 20px; }
+.prev {
+  left: 10%;
+}
 
-/* ========== BACKGROUND PANELS (IRON MAN STYLE) ========== */
+.next {
+  right: 10%;
+}
+
+.close:hover,
+.prev:hover,
+.next:hover {
+  color: #ff4d4d;
+}
+
+/* ===============================
+   Background Animation
+================================ */
 #bgAnimation {
   position: fixed;
   top: 0;
@@ -185,42 +207,67 @@ p, li {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 0;
+  z-index: -1;
+  display: flex;
 }
 
-#bgAnimation .panel {
-  position: absolute;
-  width: 100%;
-  height: 25%;
-  background: linear-gradient(90deg, #1a1a1a, #0d0d0d);
-  transform: translateX(-100%);
+.panel {
+  flex: 1;
+  background: rgba(255, 0, 0, 0.05);
+  transform: translateY(100%);
   transition: transform 1s ease-in-out;
 }
 
-#bgAnimation .panel.active {
-  transform: translateX(0);
+.panel.active {
+  transform: translateY(0);
 }
 
-.panel1 { top: 0; background: #a4161a; }
-.panel2 { top: 25%; background: #6a040f; }
-.panel3 { top: 50%; background: #370617; }
-.panel4 { top: 75%; background: #0b090a; }
+.panel1 {
+  background: linear-gradient(to bottom, #ff1a1a, #330000);
+}
 
-/* ========== FOOTER ========== */
+.panel2 {
+  background: linear-gradient(to bottom, #660000, #000000);
+}
+
+.panel3 {
+  background: linear-gradient(to bottom, #990000, #1a0000);
+}
+
+.panel4 {
+  background: linear-gradient(to bottom, #330000, #000000);
+}
+
+/* ===============================
+   Footer
+================================ */
 footer {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
   text-align: center;
-  padding: 2rem;
-  background: rgba(20, 20, 20, 0.95);
-  color: #aaa;
 }
 
-.social-links a {
-  color: #f0f0f0;
-  margin: 0 0.5rem;
-  font-size: 1.3rem;
-  transition: color 0.3s ease;
+footer .social-links a {
+  margin: 0 10px;
+  color: #f5f5f5;
+  font-size: 20px;
+  transition: color 0.3s;
 }
 
-.social-links a:hover {
-  color: #f05454;
+footer .social-links a:hover {
+  color: #ff4d4d;
+}
+
+/* ===============================
+   Text Visibility Fix
+================================ */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+  text-shadow: 0px 0px 15px rgba(255, 80, 80, 0.9),
+               0px 0px 25px rgba(255, 20, 20, 0.6);
+}
+
+p, li, a, span {
+  color: #f5f5f5;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
 }
