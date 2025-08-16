@@ -76,7 +76,7 @@ window.addEventListener("scroll",()=>{
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', function(e){
   e.preventDefault();
-  emailjs.sendForm('service_1dw1clq', 'template_wft17k5', this)
+  emailjs.sendForm('service_1dw1clq', 'template_z6fjipl', this)
     .then(() => {
       alert('Message sent successfully!');
       contactForm.reset();
