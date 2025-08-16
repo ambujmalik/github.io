@@ -1,225 +1,96 @@
-/* ================= GLOBAL RESET ================= */
+/* =====================
+   Reset & Base Styles
+===================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  font-family: "Poppins", sans-serif;
-  scroll-behavior: smooth;
-  background: #000;
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #000; /* Dark sci-fi theme */
   color: #fff;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* ================= BACKGROUND PANELS ================= */
-#bgAnimation {
+/* =====================
+   Navigation
+===================== */
+nav {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  z-index: -2;
-  display: flex;
-}
-
-.panel {
-  flex: 1;
-  background: linear-gradient(to bottom, #8b0000, #111);
-  transform: translateY(-100%);
-  transition: transform 1s ease-in-out;
-}
-
-.panel.open {
-  transform: translateY(0);
-}
-
-/* ================= NAVBAR ================= */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
   padding: 1rem 2rem;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0,0,0,0.8);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
+  backdrop-filter: blur(8px);
 }
 
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #f44336;
-}
-
-.navbar nav a {
-  margin: 0 1rem;
+nav a {
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  margin-left: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-.navbar nav a:hover {
-  color: #f44336;
+nav a:hover {
+  color: #ffcc33; /* gold highlight */
 }
 
-/* ================= HERO ================= */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero p {
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-}
-
-.btn {
-  padding: 0.6rem 1.2rem;
-  border-radius: 30px;
-  background: #f44336;
-  color: #fff;
-  text-decoration: none;
-  transition: 0.3s;
-  display: inline-block;
-}
-
-.btn:hover {
-  background: #c62828;
-}
-
-/* ================= SECTIONS ================= */
+/* =====================
+   Sections
+===================== */
 section {
-  padding: 5rem 2rem;
-  text-align: center;
+  min-height: 100vh;
+  padding: 6rem 2rem 2rem;
   position: relative;
   z-index: 1;
 }
 
-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  color: #f44336;
-}
-
-/* ================= CARDS ================= */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 1rem;
-  width: 280px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  z-index: 1;
-}
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-
-.card-content h3 {
-  margin-bottom: 0.5rem;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
-}
-
-/* ================= MODAL ================= */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.95);
-}
-
-.modal-content {
-  margin: auto;
-  display: block;
-  max-width: 80%;
-  max-height: 80%;
-}
-
-.close, .prev, .next {
-  position: absolute;
-  top: 50%;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: white;
-  user-select: none;
-}
-
-.close {
-  top: 20px;
-  right: 35px;
-  font-size: 2.5rem;
-}
-
-.prev {
-  left: 15px;
-}
-
-.next {
-  right: 15px;
-}
-
-/* ================= FOOTER ================= */
-footer {
-  background: rgba(0,0,0,0.8);
-  padding: 1.5rem;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.social-links a {
-  margin: 0 0.5rem;
-  font-size: 1.5rem;
+/* =====================
+   Headings
+===================== */
+h1, h2, h3 {
   color: #fff;
-  transition: color 0.3s;
+  text-shadow: 0 0 10px rgba(255, 204, 51, 0.8);
+  margin-bottom: 1rem;
 }
 
-.social-links a:hover {
-  color: #f44336;
+p {
+  color: #ddd;
+  max-width: 800px;
+  margin-bottom: 1rem;
 }
 
-/* ================= FADE-IN ================= */
+/* =====================
+   Buttons
+===================== */
+button, a.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: #ffcc33;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+}
+
+button:hover, a.btn:hover {
+  background: #ffd84d;
+  transform: scale(1.05);
+}
+
+/* =====================
+   Fade-in Animation
+===================== */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -231,23 +102,129 @@ footer {
   transform: translateY(0);
 }
 
-/* ================= TEXT VISIBILITY FIX ================= */
-body, h1, h2, h3, h4, h5, h6, p, li, a, span {
-  color: #ffffff !important;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9),
-               0px 0px 18px rgba(255, 50, 50, 0.8);
+/* =====================
+   Toast Notification
+===================== */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #111;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 2000;
 }
 
-/* Dark overlay behind each section */
-section::before,
-.hero::before,
-footer::before {
-  content: "";
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================
+   Certificates Modal
+===================== */
+#imgModal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.95);
+}
+
+#modalImage {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 80%;
+  border: 3px solid #ffcc33;
+  border-radius: 10px;
+}
+
+.close, .prev, .next {
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffcc33;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+}
+
+.close {
+  top: 20px;
+  right: 40px;
+  font-size: 2.5rem;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* =====================
+   Iron Man Background Panels
+===================== */
+#bgAnimation {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: -1;
+  display: flex;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.panel {
+  flex: 1;
+  background: linear-gradient(145deg, #8b0000, #330000);
+  box-shadow: inset 0 0 50px rgba(255, 204, 51, 0.2);
+  transition: transform 1s ease-in-out;
+}
+
+/* Left side panel */
+.panel.left {
+  transform: translateX(0);
+}
+
+.panel.left.active {
+  transform: translateX(-100%);
+}
+
+/* Right side panel */
+.panel.right {
+  transform: translateX(0);
+}
+
+.panel.right.active {
+  transform: translateX(100%);
+}
+
+/* Optional glowing center line */
+#bgAnimation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #ffcc33;
+  box-shadow: 0 0 20px #ffcc33, 0 0 40px #ffcc33;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.panel.left.active ~ .panel.right.active ~ #bgAnimation::before {
+  opacity: 1;
 }
