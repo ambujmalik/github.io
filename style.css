@@ -228,3 +228,41 @@ button:hover, a.btn:hover {
 .panel.left.active ~ .panel.right.active ~ #bgAnimation::before {
   opacity: 1;
 }
+/* =====================
+   Background Animation Panels
+===================== */
+#bgAnimation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.panel {
+  flex: 1;
+  background: linear-gradient(145deg, #8b0000, #330000);
+  box-shadow: inset 0 0 50px rgba(255, 204, 51, 0.2);
+  transition: transform 1s ease-in-out;
+}
+
+/* Left side panel */
+.panel.left {
+  transform: translateX(0);
+}
+
+.panel.left.active {
+  transform: translateX(-100%);
+}
+
+/* Right side panel */
+.panel.right {
+  transform: translateX(0);
+}
+
+.panel.right.active {
+  transform: translateX(100%);
+}
