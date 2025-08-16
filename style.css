@@ -9,278 +9,9 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #000; /* Dark sci-fi theme */
+  background: #000;
   color: #fff;
   line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* =====================
-   Navigation
-===================== */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 1rem 2rem;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  backdrop-filter: blur(8px);
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #ffcc33; /* gold highlight */
-}
-
-/* =====================
-   Sections
-===================== */
-section {
-  min-height: 100vh;
-  padding: 6rem 2rem 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-/* =====================
-   Headings
-===================== */
-h1, h2, h3 {
-  color: #fff;
-  text-shadow: 0 0 10px rgba(255, 204, 51, 0.8);
-  margin-bottom: 1rem;
-}
-
-p {
-  color: #ddd;
-  max-width: 800px;
-  margin-bottom: 1rem;
-}
-
-/* =====================
-   Buttons
-===================== */
-button, a.btn {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  background: #ffcc33;
-  color: #000;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
-  text-decoration: none;
-}
-
-button:hover, a.btn:hover {
-  background: #ffd84d;
-  transform: scale(1.05);
-}
-
-/* =====================
-   Fade-in Animation
-===================== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =====================
-   Toast Notification
-===================== */
-.toast {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #111;
-  color: #fff;
-  padding: 0.8rem 1.2rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-  z-index: 2000;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =====================
-   Certificates Modal
-===================== */
-#imgModal {
-  display: none;
-  position: fixed;
-  z-index: 3000;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background: rgba(0,0,0,0.95);
-}
-
-#modalImage {
-  display: block;
-  margin: auto;
-  max-width: 90%;
-  max-height: 80%;
-  border: 3px solid #ffcc33;
-  border-radius: 10px;
-}
-
-.close, .prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #ffcc33;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px;
-  user-select: none;
-}
-
-.close {
-  top: 20px;
-  right: 40px;
-  font-size: 2.5rem;
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-/* =====================
-   Iron Man Background Panels
-===================== */
-#bgAnimation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.panel {
-  flex: 1;
-  background: linear-gradient(145deg, #8b0000, #330000);
-  box-shadow: inset 0 0 50px rgba(255, 204, 51, 0.2);
-  transition: transform 1s ease-in-out;
-}
-
-/* Left side panel */
-.panel.left {
-  transform: translateX(0);
-}
-
-.panel.left.active {
-  transform: translateX(-100%);
-}
-
-/* Right side panel */
-.panel.right {
-  transform: translateX(0);
-}
-
-.panel.right.active {
-  transform: translateX(100%);
-}
-
-/* Optional glowing center line */
-#bgAnimation::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 4px;
-  height: 100%;
-  background: #ffcc33;
-  box-shadow: 0 0 20px #ffcc33, 0 0 40px #ffcc33;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.panel.left.active ~ .panel.right.active ~ #bgAnimation::before {
-  opacity: 1;
-}
-/* =====================
-   Background Animation Panels
-===================== */
-#bgAnimation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.panel {
-  flex: 1;
-  background: linear-gradient(145deg, #8b0000, #330000);
-  box-shadow: inset 0 0 50px rgba(255, 204, 51, 0.2);
-  transition: transform 1s ease-in-out;
-}
-
-/* Left side panel */
-.panel.left {
-  transform: translateX(0);
-}
-
-.panel.left.active {
-  transform: translateX(-100%);
-}
-
-/* Right side panel */
-.panel.right {
-  transform: translateX(0);
-}
-
-.panel.right.active {
-  transform: translateX(100%);
-}
-
-/* =====================
-   Global Styles
-===================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  line-height: 1.6;
-  color: #fff;
-  background: #000; /* fallback */
   overflow-x: hidden;
 }
 
@@ -295,7 +26,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0,0,0,0.7);
   backdrop-filter: blur(6px);
   z-index: 1000;
 }
@@ -328,9 +59,8 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: transparent;
-  z-index: 2;
   position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
@@ -338,13 +68,13 @@ body {
   background: linear-gradient(90deg, #ffcc33, #ff6600);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(255, 204, 51, 0.8);
+  text-shadow: 0 0 20px rgba(255,204,51,0.8);
 }
 
 .hero p {
   font-size: 1.2rem;
   color: #fff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 10px rgba(255,255,255,0.9);
 }
 
 .btn {
@@ -364,7 +94,7 @@ body {
 }
 
 /* =====================
-   Section
+   Sections
 ===================== */
 section {
   padding: 80px 20px;
@@ -381,14 +111,28 @@ h2 {
   background: linear-gradient(90deg, #ffcc33, #ff6600);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(255, 204, 51, 0.8);
+  text-shadow: 0 0 15px rgba(255,204,51,0.8);
 }
 
 p {
   font-size: 1.1rem;
   color: #fff;
   text-align: center;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 6px rgba(255,255,255,0.9);
+}
+
+/* =====================
+   Fade-in Animation
+===================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* =====================
@@ -402,12 +146,12 @@ p {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.08);
   border-radius: 15px;
   overflow: hidden;
   width: 280px;
   text-align: center;
-  box-shadow: 0 0 15px rgba(255, 204, 51, 0.3);
+  box-shadow: 0 0 15px rgba(255,204,51,0.3);
   transition: 0.3s;
 }
 
@@ -429,7 +173,7 @@ p {
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 25px rgba(255, 204, 51, 0.6);
+  box-shadow: 0 0 25px rgba(255,204,51,0.6);
 }
 
 /* =====================
@@ -444,7 +188,7 @@ p {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0,0,0,0.95);
 }
 
 .modal-content {
@@ -467,23 +211,32 @@ p {
   user-select: none;
 }
 
-.close {
-  top: 20px;
-  right: 40px;
+.close { top: 20px; right: 40px; }
+.prev { left: 20px; }
+.next { right: 20px; }
+.close:hover, .prev:hover, .next:hover { color: #ffcc33; }
+
+/* =====================
+   Toast Notification
+===================== */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #111;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 2000;
 }
 
-.prev {
-  left: 20px;
-}
-
-.next {
-  right: 20px;
-}
-
-.close:hover,
-.prev:hover,
-.next:hover {
-  color: #ffcc33;
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* =====================
@@ -492,10 +245,10 @@ p {
 footer {
   text-align: center;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0,0,0,0.8);
   font-size: 0.9rem;
   color: #fff;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(255,255,255,0.9);
 }
 
 .social-links a {
@@ -505,12 +258,10 @@ footer {
   transition: 0.3s;
 }
 
-.social-links a:hover {
-  color: #ffcc33;
-}
+.social-links a:hover { color: #ffcc33; }
 
 /* =====================
-   Background Animation Panels
+   Iron Man Background Panels
 ===================== */
 #bgAnimation {
   position: fixed;
@@ -520,16 +271,21 @@ footer {
   height: 100%;
   display: flex;
   z-index: 0;
+  overflow: hidden;
 }
 
 .panel {
   flex: 1;
-  background: linear-gradient(145deg, #8b0000, #330000);
-  box-shadow: inset 0 0 50px rgba(255, 204, 51, 0.2);
+  background: linear-gradient(145deg,#8b0000,#330000);
+  box-shadow: inset 0 0 50px rgba(255,204,51,0.2);
   transform: translateY(-100%);
   transition: transform 0.8s ease-in-out;
 }
 
-.panel.active {
-  transform: translateY(0);
-}
+.panel.active { transform: translateY(0); }
+
+/* Left & Right Sliding Panels */
+.panel.left { transform: translateX(0); }
+.panel.left.active { transform: translateX(-100%); }
+.panel.right { transform: translateX(0); }
+.panel.right.active { transform: translateX(100%); }
