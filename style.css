@@ -276,3 +276,46 @@ footer {
   opacity: 1;
   box-shadow: 0 0 30px #ff3300;
 }
+/* --- Iron Man background --- */
+#bgAnimation {
+  position: fixed;
+  inset: 0;                    /* top/right/bottom/left: 0 */
+  z-index: 0;                  /* behind content but above body background */
+  pointer-events: none;        /* never block clicks */
+  background: radial-gradient(1200px at 50% -200px, #0d0d0d 0%, #000 60%);
+}
+
+/* keep all content above the background */
+body > *:not(#bgAnimation) {
+  position: relative;
+  z-index: 1;
+}
+
+/* sliding armor panels */
+.panel {
+  height: 25vh;                /* 4 bands fill the screen */
+  width: 100%;
+  opacity: 0.7;
+  /* metal + circuit vibe */
+  background-image:
+    linear-gradient(135deg, #7a0000, #1a0000),
+    repeating-linear-gradient(90deg, rgba(255,204,0,.18) 0 2px, transparent 2px 8px);
+  mix-blend-mode: screen;
+  transform: translateX(-100%);     /* hidden off-screen */
+  transition: transform 0.9s cubic-bezier(.2,.65,.2,1);
+}
+
+/* alternate panels slide from the right for a “attach from both sides” feel */
+.panel:nth-child(even) {
+  transform: translateX(100%);
+}
+
+.panel.active {
+  transform: translateX(0);
+}
+
+/* optional subtle glow when active */
+.panel.active {
+  filter: drop-shadow(0 0 12px #ff3300);
+}
+
