@@ -46,3 +46,64 @@ document.querySelectorAll("a[download]").forEach(btn => {
     showToast("Download started...");
   });
 });
+
+// Modal functionality with slideshow
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImage");
+const closeBtn = document.querySelector(".close");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+const images = Array.from(document.querySelectorAll(".certificate-img"));
+let currentIndex = 0;
+
+// Open modal when clicking certificate
+images.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    modal.style.display = "block";
+    currentIndex = index;
+    showImage(currentIndex);
+  });
+});
+
+// Show image based on index
+function showImage(index) {
+  modalImg.src = images[index].src;
+}
+
+// Close modal
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Navigate previous
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+});
+
+// Navigate next
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+});
+
+// Close when clicking outside the image
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+// Keyboard navigation
+document.addEventListener("keydown", (e) => {
+  if (modal.style.display === "block") {
+    if (e.key === "ArrowLeft") {
+      prevBtn.click();
+    } else if (e.key === "ArrowRight") {
+      nextBtn.click();
+    } else if (e.key === "Escape") {
+      closeBtn.click();
+    }
+  }
+});
