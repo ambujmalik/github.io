@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ambuj Kishore Malik - Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
   <!-- Background Animation Panels -->
@@ -15,6 +15,8 @@
     <div class="panel panel2"></div>
     <div class="panel panel3"></div>
     <div class="panel panel4"></div>
+    <div class="panel left"></div>
+    <div class="panel right"></div>
   </div>
 
   <!-- Navbar -->
@@ -29,7 +31,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero fade-in">
     <h1>Ambuj Kishore Malik</h1>
     <p>Developer • Designer • Learner</p>
     <a href="#projects" class="btn">Explore My Work</a>
@@ -56,7 +58,6 @@
   <section id="resume" class="fade-in">
     <h2>Resume & Certificates</h2>
     <div class="card-container">
-      <!-- Resume Card -->
       <div class="card">
         <img src="images/resume-preview.jpg" alt="Resume Preview">
         <div class="card-content">
@@ -66,7 +67,6 @@
         </div>
       </div>
 
-      <!-- Certificate Card -->
       <div class="card">
         <img src="images/certificate-preview.jpg" alt="Certificate Preview">
         <div class="card-content">
@@ -82,8 +82,6 @@
   <section id="certificates" class="fade-in">
     <h2>Certificates</h2>
     <div class="card-container">
-
-      <!-- Certificate 1 -->
       <div class="card">
         <img src="images/certificate1.jpg" alt="Certificate 1 Preview" class="certificate-img">
         <div class="card-content">
@@ -92,7 +90,6 @@
         </div>
       </div>
 
-      <!-- Certificate 2 -->
       <div class="card">
         <img src="images/certificate2.jpg" alt="Certificate 2 Preview" class="certificate-img">
         <div class="card-content">
@@ -101,7 +98,6 @@
         </div>
       </div>
 
-      <!-- Certificate 3 -->
       <div class="card">
         <img src="images/certificate3.jpg" alt="Certificate 3 Preview" class="certificate-img">
         <div class="card-content">
@@ -109,7 +105,6 @@
           <a href="docs/certificate3.pdf" target="_blank" class="btn">View PDF</a>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -121,17 +116,15 @@
     <img class="modal-content" id="modalImage">
   </div>
 
-  <div id="bgAnimation">
-  <div class="panel left"></div>
-  <div class="panel right"></div>
-</div>
-
-  
   <!-- Contact -->
   <section id="contact" class="fade-in">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:bm.ambuj.malik@gmail.com">bm.ambuj.malik@gmail.com</a></p>
-    <button id="contactBtn" class="btn">Say Hello!</button>
+    <form id="contactForm">
+      <input type="text" name="from_name" placeholder="Your Name" required />
+      <input type="email" name="reply_to" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
   </section>
 
   <!-- Footer -->
