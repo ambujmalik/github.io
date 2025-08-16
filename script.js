@@ -1,4 +1,4 @@
-// Fade-in on scroll
+// Fade-in animation
 const faders = document.querySelectorAll('.fade-in');
 const appearOnScroll = new IntersectionObserver((entries, observer)=>{
   entries.forEach(entry=>{
@@ -18,7 +18,9 @@ function showToast(message){
   setTimeout(()=>toast.classList.add('show'),100);
   setTimeout(()=>{toast.classList.remove('show'); setTimeout(()=>toast.remove(),300)},3000);
 }
-document.querySelectorAll('a[download]').forEach(btn=>{btn.addEventListener('click',()=>showToast('Download started...'));});
+document.querySelectorAll('a[download]').forEach(btn=>{
+  btn.addEventListener('click',()=>showToast('Download started...'));
+});
 
 // Modal slideshow
 const modal=document.getElementById('imgModal');
@@ -28,21 +30,43 @@ const prevBtn=document.querySelector('.prev');
 const nextBtn=document.querySelector('.next');
 const images=Array.from(document.querySelectorAll('.certificate-img'));
 let currentIndex=0;
-images.forEach((img,index)=>{img.addEventListener('click',()=>{modal.style.display='block'; currentIndex=index; modalImg.src=images[currentIndex].src;});});
-closeBtn.addEventListener('click',()=>modal.style.display='none');
-prevBtn.addEventListener('click',()=>{currentIndex=(currentIndex-1+images.length)%images.length; modalImg.src=images[currentIndex].src;});
-nextBtn.addEventListener('click',()=>{currentIndex=(currentIndex+1)%images.length; modalImg.src=images[currentIndex].src;});
-window.addEventListener('click',e=>{if(e.target===modal) modal.style.display='none';});
-document.addEventListener('keydown',e=>{if(modal.style.display==='block'){if(e.key==='ArrowLeft') prevBtn.click(); else if(e.key==='ArrowRight') nextBtn.click(); else if(e.key==='Escape') closeBtn.click();}});
 
-// Iron Man panels scroll effect
-const leftPanel = document.querySelector(".panel.left");
-const rightPanel = document.querySelector(".panel.right");
-window.addEventListener("scroll", () => {
-  if(window.scrollY > 50){
+images.forEach((img,index)=>{
+  img.addEventListener('click',()=>{
+    modal.style.display='block';
+    currentIndex=index;
+    modalImg.src=images[currentIndex].src;
+  });
+});
+
+closeBtn.addEventListener('click',()=>modal.style.display='none');
+prevBtn.addEventListener('click',()=>{
+  currentIndex=(currentIndex-1+images.length)%images.length;
+  modalImg.src=images[currentIndex].src;
+});
+nextBtn.addEventListener('click',()=>{
+  currentIndex=(currentIndex+1)%images.length;
+  modalImg.src=images[currentIndex].src;
+});
+window.addEventListener('click',e=>{
+  if(e.target===modal) modal.style.display='none';
+});
+document.addEventListener('keydown',e=>{
+  if(modal.style.display==='block'){
+    if(e.key==='ArrowLeft') prevBtn.click();
+    else if(e.key==='ArrowRight') nextBtn.click();
+    else if(e.key==='Escape') closeBtn.click();
+  }
+});
+
+// Iron Man panels scroll animation
+const leftPanel=document.querySelector(".panel.left");
+const rightPanel=document.querySelector(".panel.right");
+window.addEventListener("scroll",()=>{
+  if(window.scrollY>50){
     leftPanel.classList.add("active");
     rightPanel.classList.add("active");
-  } else {
+  } else{
     leftPanel.classList.remove("active");
     rightPanel.classList.remove("active");
   }
@@ -61,3 +85,31 @@ contactForm.addEventListener('submit', function(e){
       console.error(error);
     });
 });
+
+// Typing animation
+const typingText = document.getElementById('typing');
+const words = ["Developer", "Designer", "Learner"];
+let wordIndex = 0, charIndex = 0, typingSpeed = 150, erasingSpeed = 100, delayBetween = 1500;
+
+function type() {
+  if(charIndex < words[wordIndex].length){
+    typingText.textContent += words[wordIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingSpeed);
+  } else {
+    setTimeout(erase, delayBetween);
+  }
+}
+
+function erase() {
+  if(charIndex > 0){
+    typingText.textContent = words[wordIndex].substring(0,charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingSpeed);
+  } else {
+    wordIndex = (wordIndex+1) % words.length;
+    setTimeout(type, typingSpeed);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function(){setTimeout(type,500)});
