@@ -3,150 +3,523 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ambuj Kishore Malik - Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Ambuj Kishore Malik - Full Stack Developer & AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Background Animation Panels -->
-  <div id="bgAnimation">
-    <div class="panel left"></div>
-    <div class="panel right"></div>
+  <!-- Professional Arc Reactor Background -->
+  <div id="bgAnimation" class="reactor-background">
+    <div class="reactor-shell">
+      <div class="shell-segment seg-1"></div>
+      <div class="shell-segment seg-2"></div>
+      <div class="shell-segment seg-3"></div>
+      <div class="shell-segment seg-4"></div>
+      <div class="shell-segment seg-5"></div>
+      <div class="shell-segment seg-6"></div>
+      <div class="shell-segment seg-7"></div>
+      <div class="shell-segment seg-8"></div>
+    </div>
+    
+    <div class="reactor-core">
+      <div class="core-energy">
+        <div class="energy-ring ring-1"></div>
+        <div class="energy-ring ring-2"></div>
+        <div class="energy-ring ring-3"></div>
+        <div class="core-center"></div>
+      </div>
+      
+      <div class="cpu-motherboard">
+        <div class="cpu-chip main-processor">
+          <div class="chip-label">Intel i9-13900K</div>
+          <div class="processor-cores">
+            <div class="core core-1"></div>
+            <div class="core core-2"></div>
+            <div class="core core-3"></div>
+            <div class="core core-4"></div>
+          </div>
+          <div class="cpu-temperature">68°C</div>
+        </div>
+        
+        <div class="cpu-component control-unit">
+          <div class="comp-label">Control Unit</div>
+          <div class="control-signals">
+            <div class="signal fetch-signal">FETCH</div>
+            <div class="signal decode-signal">DECODE</div>
+            <div class="signal execute-signal">EXECUTE</div>
+            <div class="signal writeback-signal">WRITEBACK</div>
+          </div>
+        </div>
+        
+        <div class="cpu-component alu-unit">
+          <div class="comp-label">Arithmetic Logic Unit</div>
+          <div class="alu-display">
+            <div class="operation">ADD</div>
+            <div class="calculation">0x2A + 0x1B = 0x45</div>
+            <div class="flags">
+              <span class="flag zero">Z</span>
+              <span class="flag carry">C</span>
+              <span class="flag overflow">V</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cpu-component register-file">
+          <div class="comp-label">Register Bank</div>
+          <div class="registers">
+            <div class="register">RAX: <span class="reg-val">0x7FFAB2C0</span></div>
+            <div class="register">RBX: <span class="reg-val">0x12345678</span></div>
+            <div class="register">RCX: <span class="reg-val">0xDEADBEEF</span></div>
+            <div class="register">RDX: <span class="reg-val">0xCAFEBABE</span></div>
+            <div class="register">RSP: <span class="reg-val">0x7FFC8420</span></div>
+            <div class="register">RIP: <span class="reg-val">0x00401000</span></div>
+          </div>
+        </div>
+        
+        <div class="cpu-component memory-unit">
+          <div class="comp-label">Memory Controller</div>
+          <div class="memory-grid">
+            <div class="mem-cell active">0x1000</div>
+            <div class="mem-cell">0x1008</div>
+            <div class="mem-cell">0x1010</div>
+            <div class="mem-cell">0x1018</div>
+            <div class="mem-cell">0x1020</div>
+            <div class="mem-cell">0x1028</div>
+          </div>
+          <div class="memory-stats">
+            <div class="stat">Used: 76%</div>
+            <div class="stat">Free: 24%</div>
+          </div>
+        </div>
+        
+        <div class="cpu-component cache-unit">
+          <div class="comp-label">L1 Cache</div>
+          <div class="cache-info">
+            <div class="cache-line">Line 1: <span class="cached-data">0xFEEDFACE</span></div>
+            <div class="cache-line">Line 2: <span class="cached-data">0xBEEFF00D</span></div>
+            <div class="cache-stats">
+              <div class="hit-rate">Hit: 94%</div>
+              <div class="miss-rate">Miss: 6%</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cpu-component fpu-unit">
+          <div class="comp-label">Floating Point Unit</div>
+          <div class="fpu-operation">
+            <div class="float-calc">π × e²</div>
+            <div class="float-result">= 23.1407</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="energy-particles">
+        <div class="particle p1"></div>
+        <div class="particle p2"></div>
+        <div class="particle p3"></div>
+        <div class="particle p4"></div>
+        <div class="particle p5"></div>
+        <div class="particle p6"></div>
+      </div>
+    </div>
   </div>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">Ambuj</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <!-- Professional Navigation -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <div class="logo">Ambuj</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <!-- Hero Section -->
+  <!-- Professional Hero Section -->
   <section class="hero">
-    <h1>Ambuj Kishore Malik</h1>
-    <p>I am aim is "To leverage technology and digital tools to
-empower communities across India, contributing to
-a digitally connected, modern society" <span id="typing"></span></p>
-    <a href="#projects" class="btn">Explore My Work</a>
+    <h1 class="hero-title">Ambuj Kishore Malik</h1>
+    <p class="hero-subtitle">Full Stack Developer & AI Engineer</p>
+    <p class="hero-description">
+      Passionate about leveraging cutting-edge technology to create innovative solutions. 
+      Specialized in web development, machine learning, and building scalable applications that 
+      <span class="typing-text" id="typing"></span>
+    </p>
+    <div class="cta-buttons">
+      <a href="#projects" class="btn btn-primary">
+        <i class="fas fa-code"></i>
+        View My Work
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        <i class="fas fa-envelope"></i>
+        Get In Touch
+      </a>
+    </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="fade-in">
-    <h2>About Me</h2>
-    <p>Hello! I’m a student and developer passionate about web and software development. I enjoy machine learning and AI model development, solving real-world and abstract problems using Python and Java, and building innovative projects that combine creativity with technology.</p>
+  <!-- Professional About Section -->
+  <section id="about" class="section fade-in">
+    <div class="section-header">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">
+        A dedicated developer with a passion for creating innovative solutions that make a difference
+      </p>
+    </div>
+    <div class="about-content">
+      <div>
+        <p class="about-text">
+          I'm a passionate full-stack developer and AI engineer with expertise in building scalable web applications, 
+          machine learning models, and innovative digital solutions. My mission is to leverage technology to empower 
+          communities across India and contribute to a digitally connected, modern society.
+        </p>
+        <p class="about-text">
+          With a strong foundation in both front-end and back-end technologies, I enjoy tackling complex problems 
+          and turning ideas into reality through clean, efficient code and thoughtful user experiences.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="fade-in">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Portfolio Website:</strong> The website you're viewing now.</li>
-      <li><strong>Todo App:</strong> Built with JavaScript to manage tasks.</li>
-      <li><strong>Weather App:</strong> Fetches weather using an API.</li>
-      <li><strong>DESIGN OF BIDIRECTIONAL DC-DC CONVERTER
-FOR HYBRID ENERGY STORAGE SYSTEM</strong></li>
-      <li><strong>Registration app: used JDBC and MySQL to
-encrypt and store data</strong></li>
-      <li><strong>Login/Signup form: built with Java Servlet and
-MySQL for user authentication</strong></li>
-      <li><strong>React e-commerce app </strong></li>
-      <li><strong>Snakegame</strong></li>
-      <li><strong>100 mini web project</strong></li>
-      <li><strong>Flight Control Simulation</strong></li>
-    </ul>
+  <!-- Professional Skills Section -->
+  <section id="skills" class="section fade-in">
+    <div class="section-header">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <p class="section-subtitle">
+        A comprehensive toolkit for modern web development and AI solutions
+      </p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="skill-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3 class="skill-title">Frontend Development</h3>
+        <p class="skill-list">React, JavaScript, TypeScript, HTML5, CSS3, Tailwind CSS, Next.js</p>
+      </div>
+      <div class="skill-category">
+        <div class="skill-icon">
+          <i class="fas fa-server"></i>
+        </div>
+        <h3 class="skill-title">Backend Development</h3>
+        <p class="skill-list">Node.js, Java, Python, Express.js, Spring Boot, RESTful APIs</p>
+      </div>
+      <div class="skill-category">
+        <div class="skill-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3 class="skill-title">Database & Cloud</h3>
+        <p class="skill-list">MySQL, MongoDB, PostgreSQL, Firebase, AWS, Docker</p>
+      </div>
+      <div class="skill-category">
+        <div class="skill-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3 class="skill-title">AI & Machine Learning</h3>
+        <p class="skill-list">TensorFlow, PyTorch, Scikit-learn, Data Analysis, Neural Networks</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Resume & Certificates -->
-  <section id="resume" class="fade-in">
-    <h2>Resume & Certificates</h2>
-    <div class="card-container">
-      <div class="card">
-        <img src="images/resume-preview.jpg" alt="Resume Preview">
-        <div class="card-content">
-          <h3>Resume</h3>
-          <a href="docs/resume.pdf" target="_blank" class="btn">View</a>
-          <a href="docs/resume.pdf" download class="btn">Download</a>
+  <!-- Professional Projects Section -->
+  <section id="projects" class="section fade-in">
+    <div class="section-header">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        A showcase of my latest work in web development, AI, and digital innovation
+      </p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div>
+            <h3 class="project-title">Interactive Portfolio</h3>
+            <p class="project-type">Web Development</p>
+          </div>
+        </div>
+        <p class="project-description">
+          A cutting-edge portfolio website featuring an Iron Man-inspired arc reactor background with real-time 
+          CPU simulation, advanced animations, and responsive design. Built with vanilla JavaScript and modern CSS.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">CSS3</span>
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">Animations</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link primary">
+            <i class="fas fa-external-link-alt"></i>
+            Live Demo
+          </a>
+          <a href="#" class="project-link secondary">
+            <i class="fab fa-github"></i>
+            Source Code
+          </a>
         </div>
       </div>
-      <div class="card">
-        <img src="images/certificate-preview.jpg" alt="Certificate Preview">
-        <div class="card-content">
-          <h3>Certificate</h3>
-          <a href="docs/certificate.pdf" target="_blank" class="btn">View</a>
-          <a href="docs/certificate.pdf" download class="btn">Download</a>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">
+            <i class="fab fa-react"></i>
+          </div>
+          <div>
+            <h3 class="project-title">E-Commerce Platform</h3>
+            <p class="project-type">Full Stack Application</p>
+          </div>
+        </div>
+        <p class="project-description">
+          A modern e-commerce application built with React and Node.js, featuring user authentication, 
+          payment integration, shopping cart functionality, and admin dashboard for inventory management.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">Stripe API</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link primary">
+            <i class="fas fa-external-link-alt"></i>
+            Live Demo
+          </a>
+          <a href="#" class="project-link secondary">
+            <i class="fab fa-github"></i>
+            Source Code
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">
+            <i class="fas fa-cloud-sun"></i>
+          </div>
+          <div>
+            <h3 class="project-title">Weather Intelligence App</h3>
+            <p class="project-type">API Integration</p>
+          </div>
+        </div>
+        <p class="project-description">
+          An intelligent weather application that provides real-time weather data, forecasts, and climate insights. 
+          Features location-based services, interactive maps, and personalized weather alerts.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Weather API</span>
+          <span class="tech-tag">Geolocation</span>
+          <span class="tech-tag">Chart.js</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link primary">
+            <i class="fas fa-external-link-alt"></i>
+            Live Demo
+          </a>
+          <a href="#" class="project-link secondary">
+            <i class="fab fa-github"></i>
+            Source Code
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">
+            <i class="fas fa-battery-half"></i>
+          </div>
+          <div>
+            <h3 class="project-title">DC-DC Converter System</h3>
+            <p class="project-type">Engineering Project</p>
+          </div>
+        </div>
+        <p class="project-description">
+          Advanced bidirectional DC-DC converter design for hybrid energy storage systems. Features real-time 
+          monitoring, efficiency optimization, and intelligent power management for renewable energy applications.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Power Electronics</span>
+          <span class="tech-tag">Control Systems</span>
+          <span class="tech-tag">MATLAB/Simulink</span>
+          <span class="tech-tag">PCB Design</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link primary">
+            <i class="fas fa-file-pdf"></i>
+            Research Paper
+          </a>
+          <a href="#" class="project-link secondary">
+            <i class="fas fa-info-circle"></i>
+            Details
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div>
+            <h3 class="project-title">Secure Authentication System</h3>
+            <p class="project-type">Backend Development</p>
+          </div>
+        </div>
+        <p class="project-description">
+          A robust authentication system built with Java Servlets and MySQL, featuring encrypted data storage, 
+          session management, role-based access control, and security best practices implementation.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">Servlets</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">JWT</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link primary">
+            <i class="fas fa-external-link-alt"></i>
+            Live Demo
+          </a>
+          <a href="#" class="project-link secondary">
+            <i class="fab fa-github"></i>
+            Source Code
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">
+            <i class="fas fa-plane"></i>
+          </div>
+          <div>
+            <h3 class="project-title">Flight Control Simulation</h3>
+            <p class="project-type">Simulation & Control</p>
+          </div>
+        </div>
+        <p class="project-description">
+          Advanced flight control simulation system with real-time data processing, physics modeling, 
+          and interactive visualization. Includes autopilot algorithms and flight dynamics analysis.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">NumPy</span>
+          <span class="tech-tag">Control Theory</span>
+          <span class="tech-tag">Visualization</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ambujmalik/flight-control-simulation" class="project-link primary">
+            <i class="fas fa-external-link-alt"></i>
+            Simulation
+          </a>
+          <a href="https://github.com/ambujmalik/flight-control-simulation" class="project-link secondary">
+            <i class="fab fa-github"></i>
+            Source Code
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Certificates Section -->
-  <section id="certificates" class="fade-in">
-    <h2>Certificates</h2>
-    <div class="card-container">
-      <div class="card">
-        <img src="images/certificate1.jpg" alt="Certificate 1 Preview" class="certificate-img">
-        <div class="card-content">
-          <h3>Certificate 1</h3>
-          <a href="docs/certificate1.pdf" target="_blank" class="btn">View PDF</a>
+  <!-- Professional Contact Section -->
+  <section id="contact" class="section fade-in">
+    <div class="section-header">
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-subtitle">
+        Ready to bring your ideas to life? Let's discuss how we can create something amazing together.
+      </p>
+    </div>
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Email</h3>
+            <p>bm.ambuj.malik@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="contact-details">
+            <h3>LinkedIn</h3>
+            <p>Connect with me professionally</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="contact-details">
+            <h3>GitHub</h3>
+            <p>Check out my code repositories</p>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <img src="images/certificate2.jpg" alt="Certificate 2 Preview" class="certificate-img">
-        <div class="card-content">
-          <h3>Certificate 2</h3>
-          <a href="docs/certificate2.pdf" target="_blank" class="btn">View PDF</a>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input type="text" name="user_name" class="form-input" placeholder="Your full name" required>
         </div>
-      </div>
-      <div class="card">
-        <img src="images/certificate3.jpg" alt="Certificate 3 Preview" class="certificate-img">
-        <div class="card-content">
-          <h3>Certificate 3</h3>
-          <a href="docs/certificate3.pdf" target="_blank" class="btn">View PDF</a>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" name="user_email" class="form-input" placeholder="your.email@example.com" required>
         </div>
-      </div>
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <input type="text" name="subject" class="form-input" placeholder="What's this about?" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea name="message" class="form-input form-textarea" placeholder="Tell me about your project or idea..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i>
+          Send Message
+        </button>
+      </form>
     </div>
   </section>
 
-  <!-- Modal Popup -->
-  <div id="imgModal" class="modal">
-    <span class="close">&times;</span>
-    <span class="prev">&#10094;</span>
-    <span class="next">&#10095;</span>
-    <img class="modal-content" id="modalImage">
-  </div>
-
-  <!-- Contact -->
-  <section id="contact" class="fade-in">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:bm.ambuj.malik@gmail.com">bm.ambuj.malik@gmail.com</a></p>
-
-    <form id="contactForm">
-      <input type="text" name="user_name" placeholder="Your Name" required>
-      <input type="email" name="user_email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Ambuj Kishore Malik. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/ambuj-kishore-malik-39095018b" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://www.instagram.com/ambuj_malik" target="_blank"><i class="fab fa-instagram"></i></a>
+  <!-- Professional Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h3 class="footer-title">Ambuj Kishore Malik</h3>
+      <p class="footer-subtitle">Building the future, one line of code at a time</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/ambuj-kishore-malik-39095018b" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/ambuj_malik" target="_blank" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://github.com/ambujmalik" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" target="_blank" class="social-link">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Ambuj Kishore Malik. All rights reserved. Made with ❤️ and lots of coffee.</p>
+      </div>
     </div>
   </footer>
 
-  <!-- EmailJS SDK -->
+  <!-- Scripts -->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function(){emailjs.init("5cXIcDBTiHuyE-P0p");})();
   </script>
-
   <script src="script.js"></script>
 </body>
 </html>
