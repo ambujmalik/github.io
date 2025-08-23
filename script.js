@@ -428,6 +428,218 @@ function updateCacheStats() {
   }
 }
 
+// Professional Document Preview Modal System
+class DocumentPreviewModal {
+  constructor() {
+    this.modal = document.getElementById('documentModal');
+    this.modalImage = document.getElementById('modalDocumentImage');
+    this.modalClose = document.querySelector('.modal-close');
+    this.modalBackdrop = document.querySelector('.modal-backdrop');
+    this.zoomInBtn = document.querySelector('.modal-zoom-in');
+    this.zoomOutBtn = document.querySelector('.modal-zoom-out');
+    this.resetBtn = document.querySelector('.modal-reset');
+    
+    this.currentZoom = 1;
+    this.maxZoom = 3;
+    this.minZoom = 0.5;
+    this.zoomStep = 0.25;
+    
+    this.init();
+  }
+  
+  init() {
+    // Preview button click handlers
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('preview-btn') || e.target.parentElement?.classList.contains('preview-btn')) {
+        e.preventDefault();
+        const button = e.target.classList.contains('preview-btn') ? e.target : e.target.parentElement;
+        const imageSrc = button.getAttribute('data-image');
+        this.showModal(imageSrc);
+      }
+    });
+    
+    // Close modal handlers
+    this.modalClose?.addEventListener('click', () => this.hideModal());
+    this.modalBackdrop?.addEventListener('click', () => this.hideModal());
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (!this.modal.classList.contains('active')) return;
+      
+      switch(e.key) {
+        case 'Escape':
+          this.hideModal();
+          break;
+        case '+':
+        case '=':
+          e.preventDefault();
+          this.zoomIn();
+          break;
+        case '-':
+          e.preventDefault();
+          this.zoomOut();
+          break;
+        case '0':
+          e.preventDefault();
+          this.resetZoom();
+          break;
+      }
+    });
+    
+    // Zoom control handlers
+    this.zoomInBtn?.addEventListener('click', () => this.zoomIn());
+    this.zoomOutBtn?.addEventListener('click', () => this.zoomOut());
+    this.resetBtn?.addEventListener('click', () => this.resetZoom());
+    
+    // Mouse wheel zoom
+    this.modalImage?.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      if (e.deltaY < 0) {
+        this.zoomIn();
+      } else {
+        this.zoomOut();
+      }
+    });
+  }
+  
+  showModal(imageSrc) {
+    if (!imageSrc || !this.modal || !this.modalImage) return;
+    
+    this.modalImage.src = imageSrc;
+    this.modal.style.display = 'flex';
+    this.resetZoom();
+    
+    // Trigger animation
+    requestAnimationFrame(() => {
+      this.modal.classList.add('active');
+    });
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+    
+    // Analytics
+    console.log(`📄 Document Preview Opened: ${imageSrc}`);
+  }
+  
+  hideModal() {
+    if (!this.modal) return;
+    
+    this.modal.classList.remove('active');
+    
+    // Hide modal after animation
+    setTimeout(() => {
+      this.modal.style.display = 'none';
+      this.modalImage.src = '';
+    }, 300);
+    
+    // Restore body scroll
+    document.body.style.overflow = 'auto';
+    
+    console.log('📄 Document Preview Closed');
+  }
+  
+  zoomIn() {
+    if (this.currentZoom < this.maxZoom) {
+      this.currentZoom = Math.min(this.currentZoom + this.zoomStep, this.maxZoom);
+      this.applyZoom();
+    }
+  }
+  
+  zoomOut() {
+    if (this.currentZoom > this.minZoom) {
+      this.currentZoom = Math.max(this.currentZoom - this.zoomStep, this.minZoom);
+      this.applyZoom();
+    }
+  }
+  
+  resetZoom() {
+    this.currentZoom = 1;
+    this.applyZoom();
+  }
+  
+  applyZoom() {
+    if (!this.modalImage) return;
+    
+    this.modalImage.style.transform = `scale(${this.currentZoom})`;
+    
+    // Update button states
+    if (this.zoomInBtn) {
+      this.zoomInBtn.disabled = this.currentZoom >= this.maxZoom;
+      this.zoomInBtn.style.opacity = this.currentZoom >= this.maxZoom ? '0.5' : '1';
+    }
+    
+    if (this.zoomOutBtn) {
+      this.zoomOutBtn.disabled = this.currentZoom <= this.minZoom;
+      this.zoomOutBtn.style.opacity = this.currentZoom <= this.minZoom ? '0.5' : '1';
+    }
+    
+    console.log(`🔍 Zoom Level: ${Math.round(this.currentZoom * 100)}%`);
+  }
+}
+
+// Professional Document Download Tracking
+function trackDownload(documentName, documentType) {
+  console.log(`📥 Download Initiated: ${documentName} (${documentType})`);
+  
+  // Show professional download notification
+  showNotification(`Downloading ${documentName}...`, 'success');
+  
+  // Optional: Analytics tracking could go here
+}
+
+// Professional Notification System
+function showNotification(message, type = 'info', duration = 3000) {
+  // Remove existing notifications
+  const existingToast = document.querySelector('.toast-notification');
+  if (existingToast) {
+    existingToast.remove();
+  }
+  
+  // Create notification element
+  const toast = document.createElement('div');
+  toast.className = `toast-notification toast-${type}`;
+  toast.innerHTML = `
+    <div class="toast-content">
+      <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+      <span>${message}</span>
+    </div>
+  `;
+  
+  // Add styles
+  toast.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: ${type === 'success' ? '#00C851' : type === 'error' ? '#FF4444' : '#0066CC'};
+    color: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    z-index: 3000;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+  `;
+  
+  document.body.appendChild(toast);
+  
+  // Trigger animation
+  requestAnimationFrame(() => {
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(0)';
+  });
+  
+  // Auto remove
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(400px)';
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
+}
+
 // Professional fade-in observer
 const observerOptions = {
   threshold: 0.1,
@@ -461,6 +673,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
       submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
       submitBtn.style.background = '#00C851';
       this.reset();
+      showNotification('Message sent successfully!', 'success');
       
       setTimeout(() => {
         submitBtn.innerHTML = originalText;
@@ -472,6 +685,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
       console.error('EmailJS Error:', error);
       submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error Occurred';
       submitBtn.style.background = '#FF4444';
+      showNotification('Failed to send message. Please try again.', 'error');
       
       setTimeout(() => {
         submitBtn.innerHTML = originalText;
@@ -479,6 +693,27 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         submitBtn.disabled = false;
       }, 3000);
     });
+});
+
+// Enhanced Document Download Handlers
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('download-btn') || e.target.parentElement?.classList.contains('download-btn')) {
+    const link = e.target.classList.contains('download-btn') ? e.target : e.target.parentElement;
+    const href = link.getAttribute('href');
+    const isDownload = link.hasAttribute('download');
+    
+    if (href && href.includes('docs/')) {
+      const filename = href.split('/').pop();
+      const documentName = filename.replace('.pdf', '').replace(/[-_]/g, ' ');
+      
+      if (isDownload) {
+        trackDownload(documentName, 'PDF');
+      } else {
+        console.log(`👁️ Document Viewed: ${documentName}`);
+        showNotification(`Opening ${documentName}...`, 'info', 2000);
+      }
+    }
+  }
 });
 
 // Smooth scrolling for navigation links
@@ -539,9 +774,50 @@ function enhanceParticleSystem() {
   }, 3000);
 }
 
+// Professional Document Card Interactions
+function enhanceDocumentCards() {
+  const documentCards = document.querySelectorAll('.document-card');
+  
+  documentCards.forEach(card => {
+    // Add subtle parallax effect on hover
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / centerY * 5;
+      const rotateY = (centerX - x) / centerX * 5;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+    
+    // Enhanced hover effects for document images
+    const docImage = card.querySelector('.document-image');
+    if (docImage) {
+      card.addEventListener('mouseenter', () => {
+        docImage.style.filter = 'brightness(1.1) contrast(1.05)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        docImage.style.filter = '';
+      });
+    }
+  });
+}
+
 // Initialize all systems
 document.addEventListener("DOMContentLoaded", function () {
   console.log('🚀 Professional Arc Reactor Portfolio Initializing...');
+  
+  // Initialize document preview modal
+  new DocumentPreviewModal();
   
   // Start typing animation
   setTimeout(typeAnimation, 1000);
@@ -549,12 +825,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize enhancements
   enhanceCoreActivity();
   enhanceParticleSystem();
+  enhanceDocumentCards();
   
   // Initial system state
   console.log('⚡ CPU Architecture Loaded');
   console.log('🔬 Quantum Processors Ready');
   console.log('📡 Data Buses Initialized');
   console.log('💾 Memory Systems Online');
+  console.log('📄 Document System Initialized');
   console.log('🎯 Scroll down to activate Arc Reactor...');
   
   // Professional debug commands
@@ -572,6 +850,13 @@ document.addEventListener("DOMContentLoaded", function () {
       updateRegisters();
       updateMemorySystem();
       updateFPU();
+    },
+    documents: {
+      preview: (imageSrc) => {
+        console.log('📄 Opening document preview:', imageSrc);
+        new DocumentPreviewModal().showModal(imageSrc);
+      },
+      notify: (message, type) => showNotification(message, type)
     }
   };
   
@@ -580,11 +865,14 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log('  reactor.deactivate() - Deactivate the reactor'); 
   console.log('  reactor.status() - Check reactor status');
   console.log('  reactor.simulate() - Run CPU simulation manually');
+  console.log('  reactor.documents.preview(imageSrc) - Preview document');
+  console.log('  reactor.documents.notify(message, type) - Show notification');
 });
 
 // Professional Error Handling
 window.addEventListener('error', function(e) {
   console.error('🚨 Application Error:', e.error);
+  showNotification('An unexpected error occurred', 'error');
 });
 
 // Professional Performance Monitoring
@@ -594,6 +882,10 @@ if ('performance' in window) {
       const perfData = performance.timing;
       const loadTime = perfData.loadEventEnd - perfData.navigationStart;
       console.log(`⚡ Page loaded in ${loadTime}ms`);
+      
+      if (loadTime > 3000) {
+        console.warn('⚠️ Page load time is above optimal threshold');
+      }
     }, 0);
   });
 }
